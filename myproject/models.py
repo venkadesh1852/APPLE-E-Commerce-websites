@@ -10,6 +10,7 @@ class Product(models.Model):
     pr_name=models.CharField(max_length=100)
     pr_image=models.ImageField(upload_to='pic')
     pr_description=models.TextField()
+    pr_quanity=models.IntegerField()
 
 
     @property
@@ -38,6 +39,7 @@ class Iphone(models.Model):
      Name=models.CharField(max_length=100)
      i_image=models.ImageField(upload_to='pic')
      price=models.CharField(max_length=20)
+
 
 
 
@@ -86,6 +88,7 @@ class myphone(models.Model):
      Name=models.CharField(max_length=100)
      my_image=models.ImageField(upload_to='pic')
      price=models.CharField(max_length=20)
+
     
 
 
@@ -141,6 +144,7 @@ class mm(models.Model):
      Name=models.CharField(max_length=100)
      my_image=models.ImageField(upload_to='pic')
      price=models.CharField(max_length=20)
+    
 
 
 
@@ -194,6 +198,7 @@ class ts(models.Model):
      Name=models.CharField(max_length=100)
      my_image=models.ImageField(upload_to='pic')
      price=models.CharField(max_length=20)
+
 
 
 
