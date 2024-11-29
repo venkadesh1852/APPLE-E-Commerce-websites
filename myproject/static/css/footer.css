@@ -1,0 +1,46 @@
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: black;
+  }
+.myfooter{
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    margin-left: 200px;
+    background-color: black;
+}
+.myfooter h2{
+    color: #ccc;
+}
+.myfooter li{
+    list-style-type: none;
+    font-size: 20px;
+}
+.myfooter a{
+    text-decoration: none;
+    color: red;
+    font-size: 20px;
+}
+.fa-instagram{
+    font-size: 50px;
+    margin-right: 10px;
+}
+.fa-instagram:hover{
+    color: rgb(170, 27, 75);
+    cursor: pointer;
+}
+.fa-facebook{
+    font-size: 50px;
+}
+.fa-facebook:hover{
+    color: blue;
+    cursor: pointer;
+}
+.fa-x-twitter{
+    font-size: 50px;
+}
+.fa-x-twitter:hover{
+    color: #f1f1f1;
+    cursor: pointer;
+}

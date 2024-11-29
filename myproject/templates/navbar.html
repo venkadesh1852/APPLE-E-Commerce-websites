@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            {% load static %}
+            <a href="#"><img src="{% static 'image/logo.png' %}"></a>
+        </div>
+            <ul class="nav-links ">
+                <li><a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> HOME</a></li>
+            <div class="dropdown">
+                <li><a href="#"><i class="fa-solid fa-bars"></i> MENU</a>
+                <div class="drop">
+                    <a href="{% url 'iphone16pro' %}">I PHONE16PRO</a>
+                    <a href="{% url 'iphone16' %}">I PHONE16</a>
+                    <a href="{% url 'iphone15' %}">I PHONE15</a>
+                    <a href="{% url 'iphone14' %}">I PHONE14</a>
+                    </li>
+                </div>
+            </div>
+            <li><a href="#"><i class="fa-solid fa-cart-shopping"></i> CART</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i> LOGOUT</a></li>
+            <li><a href=""><i class="fa fa-fw fa-user"></i> Hello...!{{ request.user }}</a></li>
+             
+            {% else %}
+            <li><a href="{% url 'register' %}"><i class="fa fa-fw fa-user"></i>  REGISTER</a></li>
+            <li><a href="{% url 'login' %}"><i class="fa fa-fw fa-user"></i>  LOGIN</a></li> 
+            {% endif %}
+             
+            
+            
+    </nav>
+    <section>
+        <div class="header">
+            <div class="progress-container">
+              <div class="progress-bar" id="myBar"></div>
+            </div>
+          </div>
+    </section>
+    <script>
+        window.onscroll = function() {myFunction()};
+        function myFunction() {
+          var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+           var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+  }
+      </script>
+
+
+
+</body>
+</html>

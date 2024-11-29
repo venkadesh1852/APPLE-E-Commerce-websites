@@ -1,0 +1,38 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+   
+}
+.container{
+    margin-top: 150px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+     max-width: 400px;
+     padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+   
+}
+input{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid black;
+}
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+form button{
+    margin-left: 130px;
+    width: 100px;
+    height: 50px;
+    border-radius: 75px;
+    background: rgb(106, 106, 214);
+    font-weight: bold;
+}
+

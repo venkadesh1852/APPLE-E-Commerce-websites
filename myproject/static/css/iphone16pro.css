@@ -1,0 +1,95 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+.applevideo video{
+    width: 1000px;
+    /* height: 1000px; */
+   margin-left: 250px;
+   margin-top: 100px;
+   border-radius: 50px;
+}
+.iphone16{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.pro16{
+    width: 500px;
+    height: 500px;
+}
+.pro16 img{
+    width: 500px;
+    height: 500px;
+}
+.pro16 p{
+    margin-top: 100px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.myphone{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ; 
+}
+.idea{
+    width: 1300px;
+    height: auto;
+    margin-bottom: 100px;
+}
+.best h2{
+    margin-left: 100px;
+    color: blue;
+
+}
+.best li{
+    margin-left: 200px;
+    text-align: justify;
+    font-size: 20px;
+    list-style-type: square;
+}
+.best1 h2{
+    margin-left: 100px;
+    color: blue;
+
+}
+.best1 li{
+    margin-left: 200px;
+    text-align: justify;
+    list-style-type: square;
+}
+.button {
+    border-radius: 4px;
+    background-color: #f41ee9;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+.button:hover span {
+    padding-right: 25px;
+  }
+  
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

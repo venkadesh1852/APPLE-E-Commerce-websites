@@ -1,0 +1,189 @@
+
+         /* home.html */
+.applevideo video{
+    width: 1000px;
+    /* height: 1000px; */
+   margin-left: 250px;
+   margin-top: 100px;
+   border-radius: 50px;
+}
+.new{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr  ;
+    text-align: center;
+}
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 50px;
+}
+.new1{
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 400px;
+    height: 400px;
+}
+.new1 img{
+    width: 300px;
+    height: 300px;
+}
+.new1 p{
+    text-align: justify,center;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.best{
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+}
+.apple_icon{
+    margin-left: 50px;
+    /* margin-top: 30px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: 500px;
+    height: 1200px;
+    
+}
+.icon img{
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 300px;
+    height: 300px;
+}
+.icon p{
+    font-weight: bold;
+    text-align: center;
+}
+.myicon{
+   margin-left: 100px;
+   align-items: center;
+}
+.myicon img{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.ques{
+    margin-top: 50px;
+    margin-left: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    text-align: center;
+    
+}
+.myq{
+    width: 500px;
+    height: 500px;
+    justify-content: center;
+}
+.myq h2{
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    
+    
+}
+.myq h3{
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    color: blue;
+}
+.myq p{
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+}
+.my{
+    width: 500px;
+    height: 600px;
+}
+
+.my h3{
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    color: blue;
+}
+.my p{
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.notes{
+    width: 1350px;
+    height: auto;
+    margin-top: 50px;
+}
+.notes h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 200px;
+    text-align: center;
+}
+.notes p{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    margin-left: 200px;
+}
+.notes h3{
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 200px;
+    color: blue;
+}
+.offer{
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.myoffer{
+    width: 300px;
+    height: 200px;
+    margin-left: 150px;
+}
+.fa-truck{
+    font-size: 50px;
+    margin-top: 10px;
+    margin-left: 100px;
+    
+}
+.fa-indian-rupee-sign{
+    font-size: 50px;
+    margin-top: 10px;
+    margin-left: 120px;
+}
+.fa-message{
+    font-size: 50px;
+    margin-top: 10px;
+    margin-left: 120px;
+}
+.myoffer h4{
+    /* font-weight: bold; */
+    text-align: center;
+}
+.myoffer p{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
+   
+}
+/* .myoffer1{
+    width: 300px;
+    height: 200px;
+    margin-right: 150px;
+}
+.myoffer1 p{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
+   
+} */
+
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/iphone16pro.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <section>
+        <div class="applevideo">
+          <video autoplay muted loop>
+            <source src="{% static 'video/iphone16pro.mp4' %}" type="video/mp4" >
+          </video>
+        </div>
+      </section>
+      <section>
+        <div class="iphone16">
+          {% for objects in data3 %}
+          <div class="pro16">
+            <img src="{{objects.i_image.url}}" alt="Product_Image">  
+           
+          </div>
+  
+          <div class="pro16">
+            <p>{{objects.Name}}</p>
+            <h1>{{objects.price}}</h1>
+            <a href="{% url 'payment' %}">
+              
+              <button class="button"><i class="fa-solid fa-cart-shopping"></i> <span>BUYNOW</span></button>
+           
+            </a>
+          </div>
+        {% endfor %}
+        </div>
+        <div class="myphone">
+          {% for objects in data4 %}
+          <div class="phone">
+            <img src="{{objects.I_image.url}}" alt="Product_Image">  
+          </div>
+          {% endfor %}
+      </section>
+      <section>
+        <div class="idea">
+          {% for objects in data5 %}
+          <div class="best">
+              <h2>{{objects.Description}}</h2>
+             <li>{{objects.name}}</li> 
+              <h2>{{objects.InTheBox}}</h2>
+              <li>{{objects.I_name}}</li>
+              <h2>{{objects.Warranty}}</h2>
+              <li>{{objects.W_name}}</li>
+          </div>
+          {% endfor %}
+        
+        {% for objects in data6 %}
+        <div class="best1">
+          <h2>Features</h2>
+         <li>{{objects.a_name}}</li> 
+         <li>{{objects.b_name}}</li>   
+          <li>{{objects.c_name}}</li>  
+         <li>{{objects.d_name}}</li> 
+          <li>{{objects.e_name}}</li>
+          <li>{{objects.f_name}}</li>
+         <li>{{objects.g_name}}</li> 
+         <li>{{objects.h_name}}</li> 
+         <li>{{objects.k_name}}</li> 
+        </div>
+        {% endfor %}
+      </div>
+      </section>
+      {% include 'footer.html' %}
+</body>
+</html>

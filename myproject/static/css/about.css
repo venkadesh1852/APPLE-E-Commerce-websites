@@ -1,0 +1,58 @@
+.about{
+    width: 1350px;
+    height: auto;
+    margin-top: 50px;
+}
+.about h2{
+    margin-left: 180px;
+    text-align: justify;
+    color: blue;
+}
+.about p{
+    margin-left: 200px;
+    text-align: justify;
+   
+}
+.about1{
+    width: 1350px;
+    height: auto;
+    margin-top: 50px;
+}
+.about1 h2{
+    margin-left: 180px;
+    text-align: justify;
+    color: blue;
+}
+.about2{
+    width: 1350px;
+    height: auto;
+    margin-top: 50px;
+}
+.about1 p{
+    margin-left: 200px;
+    text-align: justify;
+}
+.about2 h2{
+    margin-left: 180px;
+    text-align: justify;
+    color: blue;
+}
+.about2 p{
+    margin-left: 200px;
+    text-align: justify;
+}
+.about3{
+    width: 1350px;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.about3 h2{
+    margin-left: 180px;
+    text-align: justify;
+    color: blue;
+}
+.about3 p{
+    margin-left: 200px;
+    text-align: justify;
+}

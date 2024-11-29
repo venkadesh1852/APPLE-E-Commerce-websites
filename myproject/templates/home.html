@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  {% include 'navbar.html' %}
+  
+    <!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel" >
+
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+  
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'image/iphone2_banner.jpg' %}" alt="Los Angeles" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'image/iphone1_banner.jpg' %}" alt="Chicago" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'image/iphone_banner.jpg' %}" alt="New York" class="d-block w-100">
+      </div>
+    </div>
+  
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+ 
+  <!-- video -->
+  <section>
+    <div class="applevideo">
+      <video autoplay muted loop>
+        <source src="{% static 'video/apple.mp4' %}" type="video/mp4" >
+      </video>
+    </div>
+  </section>
+  <section>
+    <h1>Shop iPhone models</h1>
+      <div class="new">
+    {% for objects in data %}
+        <div class="new1">
+          <div>
+                <img src="{{objects.pr_image.url}}" alt="Product_Image">
+                <p>{{objects.pr_name}}</p>
+                <p>{{objects.pr_description}}</p>
+                <button><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+          </div>
+        </div>
+    {% endfor %} 
+      </div>
+  </section>
+  <section>
+    <h4 class="best">BEST Vs BEST Vs BEST Vs BEST</h4>
+  <div class="apple_icon">
+    {% for objects in data1 %}
+    <div class="icon">
+          <img src="{{objects.image.url}}" alt="Product_Image">
+          <p>{{objects.Name}}</p>
+    </div>
+    {% endfor %}
+    <!-- i phone 16 -->
+      <div class="myicon">
+        <img src="{% static 'image/product_tile_icon_apple_intelligence.png' %}">
+        <p>Built for Apple Intelligence</p>
+        <img src="{% static 'image/product_tile_icon_a18.png' %}">
+        <p>A18 chip with 5-core GPU</p>
+        <img src="{% static 'image/product_tile_icon_camera_button.png' %}">
+        <p>Camera Control</p>
+        <img src="{% static 'image/product_tile_icon_battery_100.png'%}">
+        <p>Up to 27 hours video playback2</p>
+        <img src="{% static 'image/product_tile_icon_iphone_16_camera__fbzexjpz33iy_large.png'%}">
+        <P>Advanced dual-camera system<br>
+          48MP Fusion camera<br>
+          2x Telephoto<br>
+          12MP Ultra Wide camera</P>
+      </div>
+      <!-- i phone 16pro -->
+      <div class="myicon">
+        <img src="{% static 'image/product_tile_icon_apple_intelligence.png' %}">
+        <p>Built for Apple Intelligence</p>
+        <img src="{% static 'image/product_tile_icon_a18_pro.png' %}">
+        <p>A18 Pro chip with 6-core GPU</p>
+        <img src="{% static 'image/product_tile_icon_camera_button.png' %}">
+        <p>Camera Control</p>
+        <img src="{% static 'image/product_tile_icon_battery_100.png'%}">
+        <p>Up to 33 hours video playback2</p>
+        <img src="{% static 'image/product_tile_icon_iphone_16_pro_camera.png'%}">
+        <P>Pro camera system<br>
+           Our most advanced 48MP Fusion camera<br>
+            5x Telephoto camera<br>
+           48MP Ultra Wide camera</P>
+      </div>
+      <!-- iPhone 15 -->
+      <div class="myicon">
+        <img src="{% static 'image/product_tile_icon_apple_intelligence.png' %}">
+        <p> No Apple Intelligence</p>
+        <img src="{% static 'image/product_tile_icon_a16.png' %}">
+        <p>A16 Bionic chip with 5-core GPU</p>
+        <img src="{% static 'image/product_tile_icon_camera_button.png' %}">
+        <p>No Camera Control</p>
+        <img src="{% static 'image/product_tile_icon_battery_100.png'%}">
+        <p>Up to 26 hours video playback2</p>
+        <img src="{% static 'image/product_tile_icon_iphone_15.png'%}">
+        <P>Dual-camera system<br>
+          48MP Main camera<br>
+          2x Telephoto<br>
+          12MP Ultra Wide camera</P>
+      </div>
+      <!-- iPhone 14 -->
+      <div class="myicon">
+        <img src="{% static 'image/product_tile_icon_apple_intelligence.png' %}">
+        <p>No Apple Intelligence</p>
+        <img src="{% static 'image/product_tile_icon_a15.png' %}">
+        <p>A15 Bionic chip with 5-core G</p>
+        <img src="{% static 'image/product_tile_icon_camera_button.png' %}">
+        <p>No Camera Control</p>
+        <img src="{% static 'image/product_tile_icon_battery_100.png'%}">
+        <p>Up to 26 hours video playback2</p>
+        <img src="{% static 'image/product_tile_icon_iphone_14_camera.png'%}">
+        <P>Dual-camera system<br>
+          12MP Main camera<br>
+          —<br>
+          Telephoto camera not applicable<br>
+          12MP Ultra Wide camera</P>
+      </div>
+     
+  </div>
+  </section>
+  <section>
+  <div class="ques">
+    <div class="myq">
+      <h2>Introducing the newest iPhone from Apple.</h2>
+      <h3>Benefits of the latest iPhone.</h3>
+      <p>There are notable upgrades with every new Apple iPhone generation, such as improvements in the display and storage space as well as constant advancements in the phone’s camera capabilities. Nowadays, it can be hard to tell whether a photo was taken with an iPhone or a professional camera. That’s because the upgraded iPhone models have expanded to include different lens options (wide, ultra-wide, and telephoto) in addition to different focus settings, such as macro and portrait mode. So, with the latest Apple iPhone, you can take amazing photos with your cell. Some people even use their iPhone to shoot and create their own movies.</p>
+      <p>The newest iPhone will also have the most up-to-date antiviral software and support all the latest software upgrades. So, if your phone is a few years old, you might be wondering how to find the best iPhone deals in order to get the next iPhone generation. You can look for trade-in discounts as well as offers made by coverage plans. You can also find open-box products for discounted prices. When choosing, note the different capabilities and sizes of the baseline, Plus, Pro and Pro Max iPhone models.</p>
+      <p>With an ever-growing collection of apps for games, music, movies, news and more, there's no limit to how you can customize your Apple iPhone to complement your life. You can use it to organize your work, play handheld console games, enrich your free time and stay in touch with family, friends and business contacts.</p>
+    </div>
+    <div class="my">
+      <h3>Getting the most out of your new Apple iPhone.</h3>
+      <p>Get more out of your updated iPhone when you buy accessories for the latest iPhone model. Start with the necessities, like a properly fitted iPhone case and screen protector. Then, if you need to keep your iPhone charged up when you're on the go, consider a portable battery charger or a wireless charging pad. Some portable chargers are compact enough to slip into your pocket or purse.</p>
+      <p>A set of earbuds and a wireless Bluetooth speaker will increase your options for listening to music or enjoying movies whenever you want. And you can expand your iPhone’s connection possibilities by using a mobile hotspot to gain fast, reliable internet speeds from anywhere.</p>
+      <p>For many users, the Apple Watch is the perfect complement to an new Apple iPhone. With a stylish interface, you can receive alerts or updates and respond right from your wrist. Keep tabs on the score for your favorite teams, reply to e-mails and text messages, track your physical activity, answer calls and check your calendar — you can do it all without picking up your phone.</p>
+      <p>The latest iPhone model brings you all the latest improvements for editing photos and videos right on your device, keeping tabs on social media, tracking your finances, streaming live podcasts and tracking your health.</p>
+    </div>
+  </div>
+  </section>
+  <section>
+    <div class="note">
+      <div class="notes">
+        <h2>Disclosures</h2>
+        <h3>Up to 2 years of AppleCare+:</h3>
+        <p>Product protection only applies to purchases at Best Buy®. Terms and conditions apply. The complete Terms and Conditions for Best Buy Protection and AppleCare+ can be found at BestBuy.com/ServicesTermsConditions under the “Protection” tab. Canceling your membership will cancel any remaining months of protection plan(s). Best Buy Product Protection, Inc. is the Obligor and Administrator of the Coverage under Best Buy Protection Plans. The company obligated under AppleCare+ in the United States is AppleCare Service Company, Inc., an Arizona corporation and wholly owned subsidiary of Apple Inc., doing business in Texas as Apple CSC Inc. Service fees apply to Coverage under AppleCare+ and Best Buy Protection. Claim limits apply to Best Buy Protection.</p>
+        <h3>Trade-in details:</h3>
+        <p>Not all products are eligible for trade-in. Not available in all locations and some stores may have additional limitations. Trade-in value may vary. Condition, documentation and accessories may affect value. Payment is by Best Buy Gift Card. For online purchases with a trade-in transaction, gift card is applied as a trade-in credit. Excludes devices that are cracked, water-damaged or that lack power. You are responsible for removing any data from your product and unpairing your device before providing the product for evaluation. You will be required to agree to the terms and conditions. You acknowledge and agree that Best Buy may, in its sole discretion, reject or limit the quantity of items to be traded in under the Online Trade-In Program. No rainchecks. Tax is applied based on the full retail value. See a Blue Shirt or BestBuy.com/TradeIn for details.</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="offer">
+      <div class="myoffer">
+        <i class="fa-solid fa-truck"></i>
+        <h4>Free delivery and pickup</h4>
+        <p>Get free delivery or pickup at your applehub</p>
+      </div>
+      <div class="myoffer">
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+        <h4>EMI available</h4>
+        <p>Convenient monthly payment option</p>
+      </div>
+      <div class="myoffer">
+        <i class="fa-solid fa-message"></i>
+        <h4>Get help buying</h4>
+        <p>Have  question? Call a Specialist Cell: 9952829542</p>
+      </div>
+    </div>
+  </section>
+  {% include 'footer.html' %}
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> 
+    <script>
+      window.onscroll = function() {myFunction()};
+      function myFunction() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+         var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          var scrolled = (winScroll / height) * 100;
+          document.getElementById("myBar").style.width = scrolled + "%";
+}
+    </script>
+</body>
+</html>
