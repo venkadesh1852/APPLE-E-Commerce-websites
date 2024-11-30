@@ -1,6 +1,3 @@
-*{
-    font-family: 'Times New Roman', Times, serif;
-}
 .applevideo video{
     width: 1000px;
     /* height: 1000px; */
@@ -10,7 +7,7 @@
 }
 .iphone16{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
 }
 .pro16{
     width: 500px;
@@ -19,6 +16,7 @@
 .pro16 img{
     width: 500px;
     height: 500px;
+
 }
 .pro16 p{
     margin-top: 100px;
@@ -97,7 +95,7 @@
     cursor: pointer;
     color: black;
     position: relative;
-  }
+}
 .ribbon {
     width: 60px;
     font-size: 14px;

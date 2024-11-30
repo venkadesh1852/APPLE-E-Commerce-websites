@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/iphone15.css' %}">
+    <link rel="stylesheet" href="{% static 'css/iphoneplus.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -12,47 +12,46 @@
     <section>
         <div class="applevideo">
           <video autoplay muted loop>
-            <source src="{% static 'video/iphone15.mp4' %}" type="video/mp4" >
+            <source src="{% static 'video/iphone16.mp4' %}" type="video/mp4" >
           </video>
         </div>
       </section>
       <section>
         <div class="iphone16">
-          {% for objects in data11 %}
-          <div class="pro16">
-            {% if objects.trending %}
-          <button class="btn"><span class="ribbon">NEW</span></button>
-          {% endif %}
-            <img src="{{objects.my_image.url}}">
+          {% for objects in data19 %}
+          <div class="pro16"> 
+            <div class="new1">
+              {% if objects.trending %}
+              <button class="btn"><span class="ribbon">NEW</span></button>
+              {% endif %}
+            </div>  
+          <img src="{{objects.my_image.url}}">
           </div>
           <div class="pro16">
             <p>{{objects.Name}}</p>
             <h2>{{objects.price}}</h2>
-            {% if objects.quanity > 1 %}
+            {% if objects.pr_quanity %}
             <button class="button"><i class="fa-solid fa-basket-shopping"></i><span>ADD TO CART</span></button>
             {% else %}
             <button class="button"><i class="fa-regular fa-face-sad-cry"></i><span>OUTOFSTOCK</span></button>
             {% endif %}
-            <a href="{% url 'payment' %}">
-              <button class="button"><i class="fa-regular fa-credit-card"></i></i> <span>BUYNOW</span></button>
-            </a>
-          </div>
+            
+                      
           </div>
           {% endfor %}
         </div>
       </section>
       <section>
         <div class="myphone">
-          {% for objects in data12 %}
+          {% for objects in data21 %}
           <div class="phone">
             <img src="{{objects.p_image.url}}" alt="Product_Image">  
           </div>
           {% endfor %}
-        </div>
       </section>
       <section>
         <div class="idea">
-          {% for objects in data13 %}
+          {% for objects in data20 %}
           <div class="best">
               <h2>{{objects.Description}}</h2>
              <li>{{objects.name}}</li> 
@@ -63,21 +62,22 @@
           </div>
           {% endfor %}
 
-          {% for objects in data14 %}
-          <div class="best1">
-            <h2>Features</h2>
-           <li>{{objects.a_name}}</li> 
-           <li>{{objects.b_name}}</li>   
-            <li>{{objects.c_name}}</li>  
-           <li>{{objects.d_name}}</li> 
-            <li>{{objects.e_name}}</li>
-            <li>{{objects.f_name}}</li>
-           <li>{{objects.g_name}}</li> 
-           <li>{{objects.h_name}}</li> 
-           <li>{{objects.k_name}}</li> 
-          </div>
-          {% endfor %}
+          {% for objects in data22 %}
+        <div class="best1">
+          <h2>Features</h2>
+         <li>{{objects.a_name}}</li> 
+         <li>{{objects.b_name}}</li>   
+          <li>{{objects.c_name}}</li>  
+         <li>{{objects.d_name}}</li> 
+          <li>{{objects.e_name}}</li>
+          <li>{{objects.f_name}}</li>
+         <li>{{objects.g_name}}</li> 
+         <li>{{objects.h_name}}</li> 
+         <li>{{objects.k_name}}</li> 
+        </div>
+        {% endfor %}
       </section>
-      {% include 'footer.html' %}
+
+    {% include 'footer.html' %}
 </body>
 </html>

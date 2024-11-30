@@ -18,4 +18,5 @@ urlpatterns=[
     path("logout/",views.logout_user,name="logout"),
     path("addtocart/",views.add_to_cart,name="addtocart"),
     path("payment/",views.payment,name="payment"),
+    path("iphone16plus/",views.iphone16plus,name="iphone16plus"),
 ]

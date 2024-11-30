@@ -20,7 +20,7 @@ h1{
     margin-left: 50px;
     margin-top: 50px;
     width: 400px;
-    height: 400px;
+    height: 500px;
 }
 .new1 img{
     width: 300px;
@@ -184,6 +184,22 @@ h1{
     font-size: 15px;
    
 } */
-
-
+.new1{
+    cursor: pointer;
+    color: black;
+    position: relative;
+  }
+.ribbon {
+    width: 60px;
+    font-size: 14px;
+    padding: 4px;
+    position: absolute;
+    right: -25px;
+    top: -12px;
+    text-align: center;
+    border-radius: 25px;
+    transform: rotate(20deg);
+    background-color: #ff9800;
+    color: black;
+}
 

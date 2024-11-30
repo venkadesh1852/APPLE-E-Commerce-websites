@@ -20,6 +20,11 @@
         <div class="iphone16">
           {% for objects in data3 %}
           <div class="pro16">
+            <div class="new1">
+              {% if objects.trending %}
+              <button class="btn"><span class="ribbon">NEW</span></button>
+              {% endif %}
+            </div>  
             <img src="{{objects.i_image.url}}" alt="Product_Image">  
            
           </div>
@@ -27,11 +32,12 @@
           <div class="pro16">
             <p>{{objects.Name}}</p>
             <h1>{{objects.price}}</h1>
-            <a href="{% url 'payment' %}">
-              
-              <button class="button"><i class="fa-solid fa-cart-shopping"></i> <span>BUYNOW</span></button>
-           
-            </a>
+            {% if objects.pr_quanity %}
+            <button class="button"><i class="fa-solid fa-basket-shopping"></i><span>ADD TO CART</span></button>
+            {% else %}
+            <button class="button"><i class="fa-regular fa-face-sad-cry"></i><span>OUTOFSTOCK</span></button>
+            {% endif %}
+            
           </div>
         {% endfor %}
         </div>

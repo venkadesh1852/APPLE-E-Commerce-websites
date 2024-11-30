@@ -18,6 +18,10 @@ from.models import ts
 from.models import ddd
 from.models import eee
 from.models import ggg
+from.models import iphoneplus
+from.models import iplus
+from.models import plus
+from.models import plus16
 
 
 
@@ -118,6 +122,13 @@ def iphone14(request):
     data17 = ddd.objects.all()
     data18 = ggg.objects.all()
     return render(request,'iphone14.html',{"data15": data15,"data16": data16,"data17": data17,"data18": data18})
+
+def iphone16plus(request):
+    data19 = iphoneplus.objects.all()
+    data20  = iplus.objects.all()
+    data21 = plus.objects.all()
+    data22 = plus16.objects.all()
+    return render(request,"iphone16plus.html",{"data19": data19,"data20": data20,"data21": data21,"data22": data22})
 
 
 
