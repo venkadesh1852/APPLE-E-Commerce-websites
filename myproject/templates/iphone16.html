@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/iphone16.css' %}">
+    <link rel="stylesheet" href="{% static 'iphone16.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -32,11 +32,19 @@
             <p>{{objects.Name}}</p>
             <h2>{{objects.price}}</h2>
             {% if objects.pr_quanity   %}
+            <P> 
+              <div class="input-group">
+                <button class="input-group-text" id="btnMinus"><i class="fa-solid fa-minus"></i></button>
+                <input type="text" name="qty" id="txtQty" value="1">
+                <button class="input-group-text" id="btnPlus"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </P>
             <button class="button"><i class="fa-solid fa-basket-shopping"></i><span>ADD TO CART</span></button>
+            <button class="button"><i class="fa-regular fa-credit-card"></i><span>BUYNOW</span></button>
             {% else %}
             <button class="button"><i class="fa-regular fa-face-sad-cry"></i><span>OUTOFSTOCK</span></button>
             {% endif %}
-            <button class="button"><i class="fa-regular fa-credit-card"></i><span>BUYNOW</span></button>
+            
             </a>
           </div>
           {% endfor %}
@@ -78,6 +86,33 @@
         </div>
         {% endfor %}
       </section>
+      <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+          const btnPlus = document.getElementById("btnPlus");
+          const btnMinus = document.getElementById("btnMinus");
+          const txtQty = document.getElementById("txtQty");
+
+          btnPlus.addEventListener("click", function() {
+            let qty=parseInt(txtQty.value,10);
+            qty=isNaN(qty)?0:qty;
+            // console.log(qty);
+            if(qty<10){
+              qty++;
+              txtQty.value=qty;
+            }
+          });
+
+          btnMinus.addEventListener("click", function() {
+            let qty=parseInt(txtQty.value,10);
+            qty=isNaN(qty)?0:qty;
+            // console.log(qty);
+            if(qty>1){
+              qty--;
+              txtQty.value=qty;
+            }
+          });
+        });
+      </script>
     {% include 'footer.html' %}
 </body>
 </html>

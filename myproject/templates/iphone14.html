@@ -28,14 +28,12 @@
           <div class="pro16">
             <p>{{objects.Name}}</p>
             <h2>{{objects.price}}</h2>
-            {% if objects.quanity > 1 %}
+            {% if objects.pr_quanity  %}
             <button class="button"><i class="fa-solid fa-basket-shopping"></i><span>ADD TO CART</span></button>
+            <button class="button"><i class="fa-regular fa-credit-card"></i></i> <span>BUYNOW</span></button>
             {% else %}
             <button class="button"><i class="fa-regular fa-face-sad-cry"></i><span>OUTOFSTOCK</span></button>
             {% endif %}
-            <a href="{% url 'payment' %}">
-              <button class="button"><i class="fa-regular fa-credit-card"></i></i> <span>BUYNOW</span></button>
-            </a>
           </div>
           </div>
           {% endfor %}

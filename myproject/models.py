@@ -138,7 +138,9 @@ class my(models.Model):
         except:
              url=""
         return url    
-
+        
+     def __str__ (self):
+        return self.p_image
 
 class pro(models.Model):
     Description=models.CharField(max_length=20)
@@ -147,6 +149,10 @@ class pro(models.Model):
     I_name=models.CharField(max_length=100)
     Warranty=models.CharField(max_length=50)
     W_name=models.CharField(max_length=100)
+
+
+    def __str__ (self):
+        return self.name
 
 
 
@@ -162,6 +168,9 @@ class  ok(models.Model):
     k_name=models.TextField(max_length=1000)
 
 
+    def __str__ (self):
+        return self.a_name
+
                     # iphone15.html
 
 class mm(models.Model):
@@ -171,10 +180,6 @@ class mm(models.Model):
      pr_quanity=models.IntegerField(null=False,blank=False)
      trending=models.BooleanField(default=False, help_text="0-default, 1-Trending")
 
-    
-
-
-
      @property
      def mmurl(self):
         try:
@@ -182,6 +187,11 @@ class mm(models.Model):
         except:
              url=""
         return url
+     
+     def __str__ (self):
+         return self.Name
+
+
      
 class sari(models.Model):
      p_image=models.ImageField(upload_to='pic')
@@ -196,6 +206,10 @@ class sari(models.Model):
              url=""
         return url    
      
+     def __str__ (self):
+         return self.p_image
+
+
 
 class aaa(models.Model):
     Description=models.CharField(max_length=20)
@@ -206,7 +220,9 @@ class aaa(models.Model):
     W_name=models.CharField(max_length=100)
 
 
-
+    def __str__ (self):
+        return self.name
+    
 class  bbb(models.Model):
     a_name=models.TextField(max_length=1000)
     b_name=models.TextField(max_length=1000)
@@ -219,6 +235,9 @@ class  bbb(models.Model):
     k_name=models.TextField(max_length=1000)
 
 
+    def __str__ (self):
+        return self.a_name
+
                 # iphone14.html
 
 class ts(models.Model):
@@ -228,10 +247,6 @@ class ts(models.Model):
      pr_quanity=models.IntegerField(null=False,blank=False)
      trending=models.BooleanField(default=False, help_text="0-default, 1-Trending")
 
-
-
-
-
      @property
      def tsurl(self):
         try:
@@ -240,6 +255,8 @@ class ts(models.Model):
              url=""
         return url
      
+     def __str__ (self):
+         return self.Name
 class eee(models.Model):
      p_image=models.ImageField(upload_to='pic')
     
@@ -274,10 +291,6 @@ class  ggg(models.Model):
     k_name=models.TextField(max_length=1000)
 
 
-class Cart(models.Model):
-    User=models.ForeignKey(User,on_delete=models.CASCADE)
-    Product=models.ForeignKey(Product,on_delete=models.CASCADE)
-    created_at=models.DateTimeField(auto_now_add=True)
 
 
 class iphoneplus(models.Model):
@@ -332,6 +345,11 @@ class  plus16(models.Model):
     h_name=models.TextField(max_length=1000)
     k_name=models.TextField(max_length=1000)
 
+                       # Cart
 
-
+class Cart(models.Model):
+    User=models.ForeignKey(User,on_delete=models.CASCADE)
+    Product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    created_at=models.DateTimeField(auto_now_add=True)
+    Product_qty=models.IntegerField(null=False,blank=False)
 
