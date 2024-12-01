@@ -1,3 +1,5 @@
+from django.http import JsonResponse
+import json
 from django.shortcuts import render
 from django.http import HttpResponse
 from.models import Product
@@ -22,6 +24,7 @@ from.models import iphoneplus
 from.models import iplus
 from.models import plus
 from.models import plus16
+from.models import Cart
 
 
 
@@ -32,7 +35,6 @@ from .forms import RegisterForm
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
-
 
 
 # Create your views here.
@@ -50,9 +52,6 @@ def footer(request):
 
 def about(request):
     return render(request,"about.html")
-
-def add_to_cart(request):
-    pass
 
 def payment(request):
     return render(request,"payment.html")
@@ -131,7 +130,34 @@ def iphone16plus(request):
     return render(request,"iphone16plus.html",{"data19": data19,"data20": data20,"data21": data21,"data22": data22})
 
 
-
-
+def add_to_cart(request):
+    if request.headers.get('x-requested-with')== "XMLHttpRequest":
+        if request.user.is_authenticated:
+            data=json.load(request)
+            Product_qty=data['Product_qty']
+            pr_id=data['p_id']
+            # print(request.user.id)
+            Product_status=myphone.objects.get(id=pr_id)
+            if Product_status:
+                if Cart.objects.filter(user=request.user.id,pr_id=pr_id):
+                    return JsonResponse({'status': 'product already in cart'}, status=200)
+                else:
+                    if Product_status.quantity>=Product_qty:
+                        Cart.objects.create(user=request.user,pr_id= pr_id,Product_qty=Product_qty)
+                        return JsonResponse({'status': 'product added to cart'}, status=200)
+                    else:
+                        return JsonResponse({'status': 'product stock not avaliable'}, status=200)
+        else:
+            return JsonResponse({'status': 'login to add cart'}, status=200)
+    else:
+        return JsonResponse({'status': 'invalid access'}, status=200)
+        
+def cart(request):
+    if request.user.is_authenticated:
+        cart=Cart.objects.filter(user=request.user)
+        return render(request,'cart.html',{"cart":cart})
+    else:
+        return redirect("home")
+   
 
 
