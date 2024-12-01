@@ -32,13 +32,12 @@
             <p>{{objects.Name}}</p>
             <h2>{{objects.price}}</h2>
             {% if objects.pr_quanity   %}
-            <P> 
-              <div class="input-group">
-                <button class="input-group-text" id="btnMinus"><i class="fa-solid fa-minus"></i></button>
-                <input type="text" name="qty" id="txtQty" value="1">
+           
                 <button class="input-group-text" id="btnPlus"><i class="fa-solid fa-plus"></i></button>
-              </div>
-            </P>
+                <input type="text" name="qty" id="txtQty" value="1">
+                <button class="input-group-text" id="btnMinus"><i class="fa-solid fa-minus"></i></button>
+                
+                
             <button class="button"><i class="fa-solid fa-basket-shopping"></i><span>ADD TO CART</span></button>
             <button class="button"><i class="fa-regular fa-credit-card"></i><span>BUYNOW</span></button>
             {% else %}

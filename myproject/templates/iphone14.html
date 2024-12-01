@@ -29,6 +29,10 @@
             <p>{{objects.Name}}</p>
             <h2>{{objects.price}}</h2>
             {% if objects.pr_quanity  %}
+            <button class="input-group-text" id="btnPlus"><i class="fa-solid fa-plus"></i></button>
+            <input type="text" name="qty" id="txtQty" value="1">
+            <button class="input-group-text" id="btnMinus"><i class="fa-solid fa-minus"></i></button>
+            
             <button class="button"><i class="fa-solid fa-basket-shopping"></i><span>ADD TO CART</span></button>
             <button class="button"><i class="fa-regular fa-credit-card"></i></i> <span>BUYNOW</span></button>
             {% else %}
@@ -76,6 +80,33 @@
           </div>
           {% endfor %}
       </section>
+      <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+          const btnPlus = document.getElementById("btnPlus");
+          const btnMinus = document.getElementById("btnMinus");
+          const txtQty = document.getElementById("txtQty");
+
+          btnPlus.addEventListener("click", function() {
+            let qty=parseInt(txtQty.value,10);
+            qty=isNaN(qty)?0:qty;
+            // console.log(qty);
+            if(qty<10){
+              qty++;
+              txtQty.value=qty;
+            }
+          });
+
+          btnMinus.addEventListener("click", function() {
+            let qty=parseInt(txtQty.value,10);
+            qty=isNaN(qty)?0:qty;
+            // console.log(qty);
+            if(qty>1){
+              qty--;
+              txtQty.value=qty;
+            }
+          });
+        });
+      </script>
       {% include 'footer.html' %}
 </body>
 </html>

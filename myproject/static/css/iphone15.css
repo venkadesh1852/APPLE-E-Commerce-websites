@@ -113,3 +113,14 @@
     background-color: #ff9800;
     color: black;
 }
+
+#btnMinus{
+    background-color: green;
+}
+#txtQty{
+    width: 40px;
+    text-align: center;
+}
+#btnPlus{
+    background-color: green;
+}

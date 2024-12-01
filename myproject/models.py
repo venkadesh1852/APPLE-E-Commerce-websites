@@ -70,8 +70,6 @@ class Iphonepro(models.Model):
         except:
              url=""
         return url
-     def __str__ (self):
-        return self.I_image
 
 class phonepro(models.Model):
     Description=models.CharField(max_length=20)
