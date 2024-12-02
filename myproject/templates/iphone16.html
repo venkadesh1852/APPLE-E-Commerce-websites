@@ -32,7 +32,7 @@
             <p>{{objects.Name}}</p>
             <h2>{{objects.price}}</h2>
             {% if objects.pr_quanity  > 0 %}
-            <input type="hidden" value="{{pr_id}}" id="p_id">
+            <input type="hidden" value="{{objects.pr_id}}" id="pr_id">
 
                 <button class="input-group-text" id="btnPlus"><i class="fa-solid fa-plus"></i></button>
                 <input type="text" name="qty" id="txtQty" value="1">
@@ -91,7 +91,7 @@
           const btnPlus = document.getElementById("btnPlus");
           const btnMinus = document.getElementById("btnMinus");
           const txtQty = document.getElementById("txtQty");
-          const pid = document.getElementById("p_id");
+          const pid = document.getElementById("pr_id");
           const btnCart=document.getElementById("btnCart");
 
 
@@ -108,7 +108,7 @@
           btnMinus.addEventListener("click", function() {
             let qty=parseInt(txtQty.value,10);
             qty=isNaN(qty)?0:qty;
-            // console.log(qty);
+            console.log(qty);
             if(qty>1){
               qty--;
               txtQty.value=qty;
@@ -122,9 +122,8 @@
 
             if(qty>0){
               let postObj = {
+                pr_id: pr_id.value,
                 Product_qty:qty,
-                p_id: p_id.value,
-               
               }
               console.log(postObj); 
               fetch("/addtocart",{
@@ -144,7 +143,7 @@
               });
               
             }else{
-              alert("please enter the qunantity");
+              alert("please enter the quantity");
             }
           })
         });
