@@ -137,7 +137,7 @@ def add_to_cart(request):
             Product_qty=data['Product_qty']
             pr_id=data['p_id']
             # print(request.user.id)
-            Product_status=myphone.objects.get(id=pr_id)
+            Product_status=Product.objects.get(id=pr_id)
             if Product_status:
                 if Cart.objects.filter(user=request.user.id,pr_id=pr_id):
                     return JsonResponse({'status': 'product already in cart'}, status=200)

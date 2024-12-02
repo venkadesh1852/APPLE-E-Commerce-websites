@@ -39,6 +39,7 @@ class compare(models.Model):
         return self.Name
      
 class Iphone(models.Model):
+     pr_id=models.IntegerField()
      Name=models.CharField(max_length=100)
      i_image=models.ImageField(upload_to='pic')
      price=models.CharField(max_length=20)
@@ -172,6 +173,7 @@ class  ok(models.Model):
                     # iphone15.html
 
 class mm(models.Model):
+     pr_id=models.IntegerField()
      Name=models.CharField(max_length=100)
      my_image=models.ImageField(upload_to='pic')
      price=models.CharField(max_length=20)
@@ -239,6 +241,7 @@ class  bbb(models.Model):
                 # iphone14.html
 
 class ts(models.Model):
+     pr_id=models.IntegerField()
      Name=models.CharField(max_length=100)
      my_image=models.ImageField(upload_to='pic')
      price=models.CharField(max_length=20)
@@ -292,6 +295,7 @@ class  ggg(models.Model):
 
 
 class iphoneplus(models.Model):
+     pr_id=models.IntegerField()
      Name=models.CharField(max_length=100)
      my_image=models.ImageField(upload_to='pic')
      price=models.CharField(max_length=20)
@@ -347,7 +351,7 @@ class  plus16(models.Model):
 
 class Cart(models.Model):
     User=models.ForeignKey(User,on_delete=models.CASCADE)
-    Product=models.ForeignKey(myphone,on_delete=models.CASCADE)
+    Product=models.ForeignKey(Product,on_delete=models.CASCADE)
     created_at=models.DateTimeField(auto_now_add=True)
     Product_qty=models.IntegerField(null=False,blank=False)
 

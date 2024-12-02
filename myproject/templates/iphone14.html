@@ -29,11 +29,14 @@
             <p>{{objects.Name}}</p>
             <h2>{{objects.price}}</h2>
             {% if objects.pr_quanity  %}
+             <input type="hidden" value="{{pr_id}}" id="pid">
+
+
             <button class="input-group-text" id="btnPlus"><i class="fa-solid fa-plus"></i></button>
             <input type="text" name="qty" id="txtQty" value="1">
             <button class="input-group-text" id="btnMinus"><i class="fa-solid fa-minus"></i></button>
             
-            <button class="button"><i class="fa-solid fa-basket-shopping"></i><span>ADD TO CART</span></button>
+            <button class="button" id="btnCart"><i class="fa-solid fa-basket-shopping"></i><span>ADD TO CART</span></button>
             <button class="button"><i class="fa-regular fa-credit-card"></i></i> <span>BUYNOW</span></button>
             {% else %}
             <button class="button"><i class="fa-regular fa-face-sad-cry"></i><span>OUTOFSTOCK</span></button>
@@ -105,6 +108,38 @@
               txtQty.value=qty;
             }
           });
+          btnCart.addEventListener("click", function(){
+            let qty=parseInt(txtQty.value,10);
+            qty=isNaN(qty)?0:qty;
+
+
+            if(qty>0){
+              let postObj = {
+                Product_qty:qty,
+                p_id: pid.value,
+               
+              }
+              // console.log(postObj); 
+              fetch("/addtocart",{
+                method: 'POST',
+                credentials: 'same-origin',
+                headers:{
+                  'Accept': 'application/json',
+                  'X-Requested-With': 'XMLHttpRequest',
+                  'X-CSRFToken':'{{ csrf_token }}',
+                },
+                body: JSON.stringify(postObj)
+              }).then(response => {
+                return response.json();
+              }).then(data => {
+                // console.log(data);
+                alert(data['status']);
+              });
+              
+            }else{
+              alert("please enter the qunantity");
+            }
+          })
         });
       </script>
       {% include 'footer.html' %}

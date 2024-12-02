@@ -32,7 +32,7 @@
             <p>{{objects.Name}}</p>
             <h2>{{objects.price}}</h2>
             {% if objects.pr_quanity  > 0 %}
-            <input type="hidden" value="{{pr_id}}" id="pid">
+            <input type="hidden" value="{{pr_id}}" id="p_id">
 
                 <button class="input-group-text" id="btnPlus"><i class="fa-solid fa-plus"></i></button>
                 <input type="text" name="qty" id="txtQty" value="1">
@@ -91,7 +91,7 @@
           const btnPlus = document.getElementById("btnPlus");
           const btnMinus = document.getElementById("btnMinus");
           const txtQty = document.getElementById("txtQty");
-          const pid = document.getElementById("pid");
+          const pid = document.getElementById("p_id");
           const btnCart=document.getElementById("btnCart");
 
 
@@ -123,10 +123,10 @@
             if(qty>0){
               let postObj = {
                 Product_qty:qty,
-                p_id: pid.value,
+                p_id: p_id.value,
                
               }
-              // console.log(postObj); 
+              console.log(postObj); 
               fetch("/addtocart",{
                 method: 'POST',
                 credentials: 'same-origin',
