@@ -2,16 +2,18 @@
     font-family: 'Times New Roman', Times, serif;
    
 }
+
+
 .container{
     margin-top: 150px;
     justify-content: center;
     align-items: center;
     width: 100%;
-     max-width: 400px;
-     padding: 20px;
+    max-width: 400px;
+    padding: 20px;
     background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border-radius: 30px;
    
 }
 input{
@@ -32,7 +34,7 @@ form button{
     width: 100px;
     height: 50px;
     border-radius: 75px;
-    background: rgb(106, 106, 214);
+    background: rgb(12, 12, 224);
     font-weight: bold;
 }
 

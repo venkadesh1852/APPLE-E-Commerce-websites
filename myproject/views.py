@@ -132,13 +132,11 @@ def iphone16plus(request):
 
 
 def add_to_cart(request):
-    if request.method =="POST":
-        if request.headers.get('x-requested-with') == "XMLHttpRequest":
+        if request.headers.get('x-requested-with')=='XMLHttpRequest':
             if request.user.is_authenticated:
-                data=json.load(request.body)
+                data=json.load(request)
                 pr_id = data.get('pr_id')  
                 Product_qty = data['Product_qty']
-                # print(request.user.id)
                 Product_status=Product.objects.get(id=pr_id)
                 if Product_status:
                     if Cart.objects.filter(user=request.user.id,pr_id=pr_id):
