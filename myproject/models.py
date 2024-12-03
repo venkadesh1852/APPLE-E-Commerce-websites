@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Product(models.Model):
-    pr_id=models.IntegerField()
     pr_name=models.CharField(max_length=100)
     pr_image=models.ImageField(upload_to='pic')
     pr_description=models.TextField()
@@ -258,18 +257,21 @@ class ts(models.Model):
      
      def __str__ (self):
          return self.Name
+     
 class eee(models.Model):
      p_image=models.ImageField(upload_to='pic')
     
-
-
      @property
      def eeeurl(self):
         try:
             url=self.p_image.url
         except:
              url=""
-        return url    
+        return url   
+      
+     def __str__ (self):
+        return self.name
+    
 
 class ddd(models.Model):
     Description=models.CharField(max_length=20)
@@ -278,6 +280,11 @@ class ddd(models.Model):
     I_name=models.CharField(max_length=100)
     Warranty=models.CharField(max_length=50)
     W_name=models.CharField(max_length=100)
+
+
+    def __str__ (self):
+        return self.name
+    
 
 
 class  ggg(models.Model):
@@ -291,7 +298,8 @@ class  ggg(models.Model):
     h_name=models.TextField(max_length=1000)
     k_name=models.TextField(max_length=1000)
 
-
+    def __str__ (self):
+        return self.a_name
 
 
 class iphoneplus(models.Model):
@@ -303,9 +311,6 @@ class iphoneplus(models.Model):
      trending=models.BooleanField(default=False, help_text="0-default, 1-Trending")
 
 
-
-
-
      @property
      def iphoneplusurl(self):
         try:
@@ -314,11 +319,12 @@ class iphoneplus(models.Model):
              url=""
         return url
      
+     def __str__ (self):
+        return self.name
+     
 class plus(models.Model):
      p_image=models.ImageField(upload_to='pic')
     
-
-
      @property
      def eeeurl(self):
         try:
@@ -326,6 +332,9 @@ class plus(models.Model):
         except:
              url=""
         return url    
+     
+     def __str__ (self):
+        return self.name
 
 class iplus(models.Model):
     Description=models.CharField(max_length=20)

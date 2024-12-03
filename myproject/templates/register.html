@@ -5,28 +5,11 @@
 </head>
 <body>
 <section class="registe">
-		<div class="containe">
-			<div class="con">
-				<div class="left"></div>
-				<div class="right">
 					<h2>REGISTRATION</h2>
 					<form action="" method="post">
 						{% csrf_token %}
-						<div class="field">
-						<label for="">User Name :</label>
-						{{form.username}}
-						</div>
-						<div class="field">
-							<label for="">Password :</label>
-							{{form.password1}}
-						</div>
-						<div class="field">
-							<label for="">Confirm Password :</label>
-							{{form.password2}}
-						</div>
-						<button type="submit" class="bu">Register</button>
-						<div class="area">
-							<p>Already User?<a href="{% url 'login' %}">Login Now</a></p>
+						{{ form.as_p }}
+						<button type="submit">Register</button>
 					</div>
 					</form>
 				</div>

@@ -102,7 +102,7 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, "Registration Success you can login now... {username}!")
+            messages.success(request, "Registration Success you can login now...!")
             return redirect('login')  
     else:
         form = RegisterForm()
@@ -148,7 +148,7 @@ def add_to_cart(request):
                         else:
                             return JsonResponse({'status': 'product stock not avaliable'}, status=400)
             else:
-                return JsonResponse({'status': 'login to add cart'}, status=200)
+                return JsonResponse({'status': 'please..login '}, status=200)
         else:
             return JsonResponse({'status': 'invalid access'}, status=200)
         
