@@ -44,7 +44,6 @@
             {% else %}
             <button class="button"><i class="fa-regular fa-face-sad-cry"></i><span>OUTOFSTOCK</span></button>
             {% endif %}
-            
            
           </div>
           {% endfor %}
@@ -116,37 +115,47 @@
           });
 
           btnCart.addEventListener("click", function(){
-            let qty=parseInt(txtQty.value,10);
-            qty=isNaN(qty)?0:qty;
+            let qty = parseInt(txtQty.value, 10);
+            qty= isNaN(qty) ? 0 : qty;
+            if (qty < 10) {
+                let postObj = {
+                  pr_id: pr_id.value,
+                  Product_qty:qty, 
+                };
+                console.log(postObj); 
+                fetch("/addtocart").then((res)=>console.log(res.json()))
+                fetch("/addtocart",{
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRFToken': '{{ csrf_token  }}',
+                    },
+                    body: JSON.stringify(postObj),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                      throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // console.log('Success:',data);
+                    alert(data['status']);
 
-
-            if(qty>0){
-              let postObj = {
-                pr_id: pr_id.value,
-                Product_qty:qty,
-              }
-              console.log(postObj); 
-              fetch("/addtocart",{
-                method: 'POST',
-                credentials: 'same-origin',
-                headers:{
-                      'Accept': 'application/json',
-                      'X-Requested-With': 'XMLHttpRequest',
-                      'X-CSRFToken': '{{ csrf_token }}',
-                },
-                body: JSON.stringify(postObj)
-              }).then(response => {
-                return response.json();
-              }).then(data => {
-                // console.log(data);
-                alert(data['status']);
-              });
-              
-            }else{
-              alert("please enter the quantity");
+                })
+                .catch(error => {
+                    console.error('Fetch error:',error);
+                });
+            } else {
+                alert("Please Enter the Quantity");
             }
-          })
-        });
+      });
+          
+      });
+
       </script>
     {% include 'footer.html' %}
 </body>
