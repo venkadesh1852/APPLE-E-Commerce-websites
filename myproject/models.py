@@ -269,9 +269,7 @@ class eee(models.Model):
              url=""
         return url   
       
-     def __str__ (self):
-        return self.name
-    
+     
 
 class ddd(models.Model):
     Description=models.CharField(max_length=20)
@@ -319,8 +317,6 @@ class iphoneplus(models.Model):
              url=""
         return url
      
-     def __str__ (self):
-        return self.name
      
 class plus(models.Model):
      p_image=models.ImageField(upload_to='pic')
@@ -361,12 +357,8 @@ class  plus16(models.Model):
 class Cart(models.Model):
     User=models.ForeignKey(User,on_delete=models.CASCADE)
     Product=models.ForeignKey(Product,on_delete=models.CASCADE)
-    created_at=models.DateTimeField(auto_now_add=True)
     Product_qty=models.IntegerField(null=False,blank=False)
+   
 
 
-class Favourite(models.Model):
-	user=models.ForeignKey(User,on_delete=models.CASCADE)
-	product=models.ForeignKey(Product,on_delete=models.CASCADE)
-	created_at=models.DateTimeField(auto_now_add=True)
 

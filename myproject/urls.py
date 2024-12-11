@@ -18,6 +18,6 @@ urlpatterns=[
     path("logout/",views.logout_user,name="logout"),
     path("payment/",views.payment,name="payment"),
     path("iphone16plus/",views.iphone16plus,name="iphone16plus"),
-    path("addtocart",views.add_to_cart,name="add_to_cart"),
-    path("cart/",views.cart,name="cart"),
+    path("/addtocart",views.add_to_cart,name="add_to_cart"),
+    path("cart/",views.Cart,name="cart"),
 ]

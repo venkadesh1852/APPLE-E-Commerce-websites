@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 import json
+from django.views.decorators.http import require_POST
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -131,30 +132,41 @@ def iphone16plus(request):
     data22 = plus16.objects.all()
     return render(request,"iphone16plus.html",{"data19": data19,"data20": data20,"data21": data21,"data22": data22})
 
-
+@csrf_exempt
+@require_POST
 def add_to_cart(request):
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-         if request.user.is_authenticated:
-            data = json.loads(request.body)
-            pr_id= data['pr_id']
-            Product_qty = data['Product_qty']
-            Product_status = Product.objects.get(id=pr_id)
-            if Product_status:
-                if Cart.objects.filter(user=request.user.id,pr_id=pr_id ).exists():
-                    return JsonResponse({'status': 'product already in cart'}, status=200)
+     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        if request.user.is_authenticated:
+            try:
+                data = json.loads(request.body)
+                pr_id = data.get('pr_id')
+                Product_qty = data.get('Product_qty')
+
+                if not pr_id or not Product_qty:
+                    return JsonResponse({'status': 'Invalid data'}, status=400)
+
+                try:
+                    Product_status = Product.objects.get(id=pr_id)
+                except Product.DoesNotExist:
+                    return JsonResponse({'status': 'Product not found'}, status=404)
+
+                if Product_status.pr_quanity >= Product_qty:
+                    cart_item, created = Cart.objects.get_or_create(
+                        user=request.user, pr_id=pr_id,
+                        defaults={'Product_qty': Product_qty}
+                    )
+                    if not created:
+                        return JsonResponse({'status': 'Product already in cart'}, status=200)
+                    return JsonResponse({'status': 'ok'}, status=200)
                 else:
-                    if Product_status.pr_quanity>=Product_qty:
-                        Cart.objects.create(user=request.user,pr_id=pr_id,Product_qty=Product_qty )
-                        return JsonResponse({'status': 'ok'}, status=200)
-                    else:
-                        return JsonResponse({'status': 'No Products'}, status=200)
-            else:
-                return JsonResponse({'status': 'Equipment not found'}, status=200)
-         else:
-            return JsonResponse({'status': 'Login to add to cart'}, status=200)
-    else:
-     return JsonResponse({'status': 'INVALID'},status=500)
-        
+                    return JsonResponse({'status': 'Not enough stock'}, status=200)
+            except Exception as e:
+                return JsonResponse({'status': f'Error: {str(e)}'}, status=500)
+        else:
+            return JsonResponse({'status': 'Login to add to cart'}, status=403)
+        return JsonResponse({'status': 'Invalid request'},status=400)
+
+
 def cart(request):
     if request.user.is_authenticated:
         cart=Cart.objects.filter(user=request.user)
